@@ -1,9 +1,4 @@
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
+
 		string linea1="";
 		string linea2 = "";
 		string linea3 = "";
@@ -43,5 +38,4 @@ public class Program
 		Console.WriteLine(linea1); 
 		Console.WriteLine(linea2);
 		Console.WriteLine(linea3);
-	}
-}
+
