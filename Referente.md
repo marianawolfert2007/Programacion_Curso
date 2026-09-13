@@ -18,6 +18,7 @@ Año: 2020
 Autor: Textagames
 
 Mecánicas:
+
  Decisiones y ramificaciones
  Estado de salud
  Objetos
