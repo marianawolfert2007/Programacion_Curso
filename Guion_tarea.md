@@ -1,603 +1,436 @@
-ELIGE TU PROPIA DESGRACIA
+LA LLAMADA DE MADRUGADA
 
-Género: Juego narrativo de texto + gestión de recursos + toma de decisiones
-Perspectiva: Segunda persona / protagonista sin nombre
-Duración estimada: 20–60 minutos por partida
-Objetivo: Sobrevivir económicamente durante un período determinado sin llegar a una situación irreversible.
+1. Título
+La llamada de las 3:17
 
-—
+2. Premisa
+El jugador controla a una persona que está sola en su casa durante la madrugada.
+A las 3:17 a. m., recibe una llamada de su propio número de teléfono. Al contestar, escucha su propia voz diciéndole:
+"No abras la puerta."
+La llamada termina.
+Unos segundos después, alguien toca la puerta.
+A partir de ese momento, el jugador tendrá que tomar diferentes decisiones para descubrir qué está ocurriendo y tratar de sobrevivir.
+La historia tiene un tono de terror con algunos momentos de humor negro y situaciones absurdas.
+El conflicto principal es descubrir si la persona que está afuera realmente necesita ayuda o si es algo que está intentando entrar a la casa.
+3. Objeto del jugador
 
-1. Concepto principal
+El objetivo principal es sobrevivir a la noche y descubrir qué está ocurriendo con la llamada.
+Para conseguirlo, el jugador deberá tomar tres decisiones importantes.
+Las decisiones pueden cambiar algunos acontecimientos de la historia y determinar qué información recibe el jugador.
+Al final existen solamente dos resultados principales:
+Final bueno: el personaje consigue sobrevivir.
+Final malo: el personaje muere.
 
-El jugador controla a una persona que necesita mantenerse económicamente durante un período de tiempo.
+4. Mecanicas utilizadas
 
-Al comenzar, tiene:
+Para este juego utilizaré cinco mecánicas:
 
-- Una cantidad limitada de dinero.
-- Un lugar donde vivir, pero con gastos.
-- Necesidades básicas.
-- 24 horas disponibles cada día.
-- Una cantidad limitada de energía.
-- Una fecha límite para alcanzar el objetivo.
+1. Reconocimiento de la intención del jugador / Player Input.
+2. Inventario y objetos.
+3. Decisiones y rutas narrativas.
+4. Condiciones y estados.
+5. Finales múltiples.
 
-El jugador debe decidir cómo utilizar su tiempo, dinero y energía.
-
-El problema es que algunas decisiones pueden parecer buenas a corto plazo, pero generan consecuencias inesperadas más adelante.
-
-Por ejemplo:
-
-«Tienes 24 horas.
-
-Dormir: 7 h
-Comer e higiene: 2 h
-Trabajo: 8 h
-Transporte: 2 h
-Tiempo libre: 5 h
-
-¿Quieres dormir menos para trabajar más?
-
-[Dormir 7 horas]
-[Dormir 4 horas y trabajar 3 horas más]»
-
-Si el jugador elige trabajar más:
-
-Dinero: +18
-Energía: -25
-
-La decisión no tiene necesariamente una consecuencia negativa inmediata. El jugador puede ganar más dinero, pero acumular cansancio afectará decisiones futuras.
-
-—
-
-2. Recursos principales
-
-El jugador administra principalmente cuatro recursos:
-
-Dinero 
-
-Se utiliza para pagar:
-
-- Alquiler.
-- Comida.
-- Transporte.
-- Higiene.
-- Otros gastos inesperados.
-
-Si el dinero llega a cero, el jugador comienza a entrar en situaciones más difíciles.
-
-Energía 
-
-Representa el cansancio del protagonista.
-
-Las actividades consumen diferentes cantidades de energía.
-
-Dormir permite recuperarla.
-
-Si la energía disminuye demasiado, pueden aparecer consecuencias como:
-
-- Trabajar peor.
-- Perder oportunidades.
-- Cometer errores.
-- Quedarse dormido.
-- No poder realizar determinadas actividades.
-
-Tiempo 
-
-Cada día tiene 24 horas.
-
-El jugador decide cómo repartirlas entre:
-
-- Dormir.
-- Comer.
-- Higiene.
-- Transporte.
-- Trabajo.
-- Estudio.
-- Tiempo libre.
-- Eventos especiales.
-
-El tiempo no se puede recuperar.
-
-Estado 
-
-Representa determinadas condiciones acumulativas del protagonista.
+  + Reconocimiento de la intencion del jugador
+    
+El jugador podrá elegir acciones mediante opciones numeradas.
 
 Por ejemplo:
 
-- Cansancio.
-- Hambre.
-- Estrés.
-- Habilidades adquiridas.
-- Relaciones.
-- Eventos descubiertos.
+«¿Qué quieres hacer?
 
-Estos estados pueden modificar eventos posteriores.
+1. Contestar el teléfono.
+2. Ignorar la llamada.»
 
-—
+El jugador escribe el número correspondiente.
 
-3. La mecánica principal: tomar decisiones
+El sistema reconoce la opción y continúa la historia dependiendo de la respuesta.
 
-Cada día el jugador recibe diferentes situaciones y debe decidir qué hacer.
+También pueden aparecer acciones como:
 
-Ejemplo:
+«1. Abrir la puerta.
+2. Mirar por la ventana.
+3. Alejarse de la puerta.»
 
-«Son las 10:00 p. m.
+No será necesario utilizar un sistema complejo que reconozca frases completas. Las opciones estarán predeterminadas para facilitar la programación en C#.
 
-Tienes que trabajar mañana a las 6:00 a. m.
+Esta mecánica permite que el jugador tenga control sobre lo que hace el personaje.
 
-Un trabajo ofrece pagar el doble si trabajas esta noche.
+  + Inventario y objetos
+    
+Durante la historia el jugador podrá encontrar algunos objetos que pueden utilizarse posteriormente.
+
+Los objetos serán sencillos para no complicar demasiado el sistema.
+
+Por ejemplo:
+
+- Teléfono.
+- Llave de la puerta.
+- Linterna.
+- Nota encontrada debajo de la puerta.
+
+Los objetos pueden cambiar las posibilidades del jugador.
+
+Por ejemplo, si el jugador encuentra la llave, podrá utilizarla para cerrar una puerta después de entrar en una habitación.
+
+La linterna puede permitirle revisar lugares oscuros y descubrir información.
+
+El inventario no será muy grande. La intención es utilizar los objetos como parte de la historia y no crear un sistema complejo de administración de objetos.
+
+  + Desiciones y rutas narrativas
+    
+Esta será una de las mecánicas principales del juego.
+
+El jugador tendrá tres decisiones importantes.
+
+Las decisiones no crearán una cantidad enorme de caminos diferentes. En cambio, algunas elecciones harán que el jugador siga una de dos rutas principales.
+
+Ruta 1 — Investigar
+
+El jugador decide investigar lo que está ocurriendo.
+
+Esta ruta permite descubrir más información sobre la llamada y sobre la persona que está afuera.
+
+Ruta 2 — Intentar escapar
+
+El jugador decide no investigar y concentrarse en escapar de la casa.
+
+Esta ruta tiene menos información, pero permite intentar salir antes de que ocurra algo peor.
+
+Las dos rutas tendrán acontecimientos diferentes, pero ambas terminarán llegando a una última decisión.
+
+  + Condiciones y estados
+
+El juego recordará algunas acciones importantes realizadas por el jugador.
+
+No serán muchas variables para mantener el sistema sencillo.
+
+Algunos estados pueden ser:
+
+- "tieneLlave"
+- "tieneLinterna"
+- "abrioPuerta"
+- "investigo"
+- "siguioLaVoz"
+
+Por ejemplo:
+
+Si el jugador tiene la linterna:
+
+«Puedes revisar el pasillo oscuro.»
+
+Si no tiene la linterna:
+
+«Está demasiado oscuro para saber qué hay allí.»
+
+Otro ejemplo:
+
+Si el jugador abrió la puerta anteriormente, algunos acontecimientos posteriores serán diferentes.
+
+De esta manera, una decisión anterior puede afectar una situación posterior.
+
+  + Finales multiples
+    
+El juego tendrá dos finales.
+
+Final A — Sobreviviste
+
+El jugador toma las decisiones que le permiten escapar de la situación.
+
+El personaje consigue salir de la casa y sobrevivir.
+
+Sin embargo, antes de terminar la historia recibe un último mensaje de su propio número:
+
+«"Bien. Esta vez sobreviviste."»
+
+Esto deja un pequeño misterio sobre lo que realmente ocurrió.
+
+Final B — Moriste
+
+El jugador toma una combinación de decisiones que provoca que la criatura o persona que está dentro o fuera de la casa consiga atraparlo.
+
+La pantalla termina con:
+
+«"La llamada terminó."»
+
+FIN.
+
+   
+5. Guion y estructura del juego
+
+Inicio
+
+El juego comienza durante la madrugada.
+
+El personaje está solo en su casa.
+
+Son las 3:17 a. m.
+
+Su teléfono comienza a sonar.
+
+El número que aparece en la pantalla es exactamente el mismo número del propio personaje.
+
+El jugador debe decidir si contestar o no.
+
+---
+
+DECISIÓN 1 — La llamada
+
+«El teléfono no deja de sonar.
 
 ¿Qué haces?
 
-[Aceptar el turno]
+1. Contestar.
+2. Ignorar la llamada.»
 
-- Dinero +30
-- Energía -20
+Si el jugador contesta:
 
-[Rechazarlo]
+Escucha su propia voz.
 
-- Dinero +0
-- Energía +5»
+«"No abras la puerta."»
 
-La decisión puede parecer sencilla, pero sus consecuencias pueden aparecer posteriormente.
+El personaje pregunta quién está hablando.
 
-—
+La voz responde:
 
-4. Sistema de trabajos
+«"Soy tú."»
 
-Los trabajos son una de las principales fuentes de dinero.
+La llamada termina.
 
-Cada trabajo tiene:
+Inmediatamente después, alguien toca la puerta.
 
-- Pago por hora.
-- Horas disponibles.
-- Requisitos.
-- Consumo de energía.
-- Eventos especiales.
-- Posibles consecuencias.
-- Una línea narrativa propia.
+Esta decisión activa principalmente la ruta de investigación.
 
-Algunos trabajos comienzan siendo completamente normales y progresivamente se vuelven absurdos.
+---
 
-—
+Si el jugador ignora la llamada:
 
-TRABAJO 1 — ENTRENADOR DE PALOMAS 
+El teléfono deja de sonar.
 
-Pago inicial: $12/h
+Durante unos segundos todo queda en silencio.
 
-Progresión
+Entonces alguien toca la puerta.
 
-Día 1
+El personaje recibe un mensaje:
 
-«"Haz que la paloma vuelva a su casa."»
+«"Si escuchas tu propia voz, no abras."»
 
-Día 4
+Esta decisión activa principalmente la ruta de escape.
 
-«"Enséñale a entregar una carta."»
+---
 
-Día 8
+DECISIÓN 2
 
-«"La paloma debe entregar la carta sin que nadie la vea."»
+Dependiendo de la primera decisión, el jugador tendrá que reaccionar ante lo que está ocurriendo.
 
-Día 12
+Ruta de investigación
 
-«"La paloma necesita instrucciones."»
+El personaje escucha golpes en la puerta.
 
-Día 18
+Puede:
 
-«"La paloma ha sido elegida como representante de la humanidad."»
+1. Mirar por la ventana.
+2. Revisar la casa.
 
-Cuantas más horas invierta el jugador en este trabajo, más eventos desbloquea.
+Si mira por la ventana:
 
-Posible final:
+No hay nadie frente a la puerta.
 
-FINAL — EL IMPERIO DE LAS PALOMAS
+Sin embargo, puede ver una silueta al otro lado de la calle.
 
-El protagonista no se convierte en rey ni presidente.
+La silueta levanta la cabeza y mira directamente hacia la ventana.
 
-Se convierte en:
+El personaje se aleja.
 
-«Ministro de Relaciones Humanas de las Palomas.»
+Entonces escucha un ruido dentro de la casa.
 
-Y lo peor es que económicamente fue una excelente decisión.
+---
 
-—
+Si revisa la casa:
 
-TRABAJO 2 — CUIDADOR DE PLANTAS 
+Encuentra una nota debajo de una puerta.
 
-Pago inicial: $30/h
+La nota dice:
 
-Progresión
+«"No confíes en la persona que está contigo."»
 
-Día 1
+El personaje está completamente solo.
 
-«"Riega la planta."»
+Esto aumenta el misterio y deja una pista para la decisión final.
 
-Día 4
+---
 
-«"La planta mide dos metros."»
+Ruta de escape
 
-Día 9
+El personaje decide que lo mejor es salir de la casa.
 
-«"La planta tiene una cara."»
+Puede:
 
-Día 15
+1. Salir por la puerta principal.
+2. Buscar otra salida.
 
-«"La planta quiere hablar contigo."»
+Si intenta salir por la puerta principal:
 
-Día 20
+Los golpes se detienen.
 
-«"La planta te ofrece empleo."»
+La puerta está abierta.
 
-El jugador puede aceptar o rechazar la propuesta.
+Eso parece demasiado fácil.
 
-Posible final:
+Antes de salir, el teléfono vuelve a sonar.
 
-FINAL — REINO VEGETAL
+---
 
-El protagonista termina gobernando una civilización de plantas.
+Si busca otra salida:
 
-Irónicamente, este puede ser uno de los finales económicamente más exitosos.
+Encuentra una ventana que puede utilizar para escapar.
 
-—
+Sin embargo, necesita la llave que está en otra habitación para abrir una puerta que bloquea el camino.
 
-TRABAJO 3 — TRADUCTOR DE PECES
+Esto hace que el objeto encontrado durante la partida tenga una función.
 
-Pago inicial: $40/h
+---
 
-Al principio, el trabajo parece completamente normal.
+DECISIÓN 3 — La última decisión
 
-El jugador traduce:
+Después de los acontecimientos anteriores, el personaje descubre que algo está ocurriendo dentro de la casa.
 
-«"Tengo hambre."»
+El teléfono vuelve a sonar.
 
-«"Hace frío."»
+La voz dice:
 
-«"Quiero otra pecera."»
+«"No salgas."»
 
-Pero mientras más trabaja, las conversaciones cambian.
+Después se escucha otra voz desde el pasillo:
 
-Progresión
+«"No escuches al teléfono."»
 
-Día 5
+El jugador debe decidir a quién creer.
 
-«"Los peces saben algo que los humanos no."»
+Opción 1 — Seguir las instrucciones del teléfono.
 
-Día 10
+Opción 2 — Ignorar la llamada y escapar.
 
-«"El océano tiene un gobierno."»
+Esta es la última decisión importante del juego.
 
-Día 15
+Dependiendo de las decisiones anteriores y de algunos estados del juego, esta decisión puede llevar al jugador al final bueno o al final malo.
 
-«"El océano está en guerra."»
+6. Estados del juego
 
-Día 20
+El programa necesitará recordar principalmente:
 
-«"Necesitamos un representante humano."»
+"tieneLlave"
 
-Posible final:
+Indica si el jugador encontró la llave.
 
-FINAL — EMBAJADOR DEL OCÉANO
+- "true" = tiene la llave.
+- "false" = no la tiene.
 
-El protagonista termina negociando la paz entre los humanos y el gobierno del océano.
+Se utiliza para determinar si puede abrir determinadas puertas.
 
-Todo comenzó porque necesitaba pagar el alquiler.
+---
 
-—
+"tieneLinterna"
 
-TRABAJO 4 — GUARDAESPALDAS DE UN PATO 
+Indica si el jugador encontró la linterna.
 
-Pago inicial: $45/h
+- "true" = puede revisar lugares oscuros.
+- "false" = no puede ver determinadas cosas.
 
-El anuncio dice:
+---
 
-«"Se busca persona responsable para proteger a un pato."»
+"investigo"
 
-Al principio solamente hay que cuidar al animal.
+Indica si el jugador decidió investigar lo que estaba ocurriendo.
 
-Pero posteriormente el jugador descubre que:
+- "true" = siguió la ruta de investigación.
+- "false" = intentó escapar.
 
-«EL PATO ES EL PRESIDENTE.»
+---
 
-A partir de ese momento aparecen:
+"abrioPuerta"
 
-- Atentados.
-- Conspiraciones.
-- Manifestaciones.
-- Persecuciones.
-- Discursos políticos.
-- Intentos de secuestro.
+Indica si el jugador abrió la puerta principal.
 
-Mientras tanto, al protagonista solo le interesa una cosa:
+Esta información puede cambiar acontecimientos posteriores.
 
-«Cobrar.»
+---
 
-Posible final:
+"siguioLaVoz"
 
-FINAL — LA PERSONA MÁS IMPORTANTE DEL PAÍS
+Indica qué decidió hacer el jugador durante la última decisión.
 
-El protagonista no es presidente.
+Esta variable ayuda a determinar el resultado final.
 
-No es ministro.
+7. Estructura general
 
-Es la persona que sostiene al pato durante las conferencias de prensa.
+Aunque existen diferentes decisiones, el juego no tendrá una cantidad infinita de caminos.
 
-Y técnicamente es la segunda persona más poderosa del país.
+Las rutas se separan temporalmente y después vuelven a encontrarse antes de la decisión final.
 
-—
+8. Finales posibles
+   
+Final A — Sobreviviste
 
-TRABAJO 5 — REPARTIDOR DE PAQUETES 
+El jugador consigue escapar de la casa.
 
-Pago inicial: $14/h
+La calle está completamente vacía.
 
-Al principio:
+El personaje corre hasta encontrar un lugar seguro.
 
-«"Entrega el paquete."»
+Cuando finalmente revisa su teléfono, aparece un último mensaje:
 
-Todo parece normal.
+«"Bien. Esta vez sobreviviste."»
 
-Hasta que un día aparece un paquete con una dirección imposible:
+El personaje mira la hora.
 
-«DESTINATARIO: TÚ»
-
-A partir de ahí, el jugador puede tomar diferentes decisiones:
-
-- Entregarlo.
-- Abrirlo.
-- Devolverlo.
-- Ignorarlo.
-
-Cada decisión desbloquea una cadena diferente de acontecimientos.
-
-Posible final:
-
-FINAL — EL REPARTIDOR
-
-El protagonista termina dedicando su vida a entregar paquetes provenientes del futuro.
-
-—
-
-TRABAJO 6 — NIÑERO DE PELUCHES 
-
-Pago inicial: $22/h
-
-El anuncio dice:
-
-«"Se busca persona responsable para cuidar una colección de peluches durante la noche."»
-
-Requisitos:
-
-- Tener paciencia.
-- No maltratar los peluches.
-- No abandonar la habitación antes de las 6:00 a. m.
-
-Al principio no ocurre nada.
-
-Después:
-
-«"Uno de los peluches está en una posición diferente."»
-
-Luego:
-
-«"Juraría que ese peluche estaba mirando hacia otro lado."»
-
-Finalmente:
-
-«"Los peluches se mueven."»
-
-El jugador debe sobrevivir la noche mientras continúa cumpliendo su trabajo.
-
-Posible final:
-
-FINAL — HORA DE DORMIR
-
-Uno de los peluches decide despedir al protagonista de la manera más definitiva posible.
+Son las 3:17 a. m.
 
 FIN.
 
-—
+---
 
-TRABAJO 7 — PROBADOR DE SILLAS 
+Final B — Moriste
 
-Pago inicial: $13/h
+El jugador toma las decisiones equivocadas y termina atrapado.
 
-El trabajo consiste simplemente en sentarse en diferentes sillas.
+El teléfono deja de sonar.
 
-Progresión
+La casa queda completamente en silencio.
 
-Día 1
+Entonces escucha su propia voz detrás de él:
 
-«"Te sentaste en 20 sillas."»
+«"Te dije que no abrieras."»
 
-Nada extraño.
-
-Día 4
-
-«"Encuentras una silla que no aparece en el inventario."»
-
-Día 5
-
-«"Te sientas."»
-
-Día 6
-
-«"Te sientas otra vez."»
-
-Aparecen diez años en el futuro.
-
-Tu trabajo ya no existe.
-
-Tu casa tampoco.
-
-Nadie te conoce.
-
-Posible final:
-
-FINAL — EL PROBADOR
-
-Intentas regresar una última vez.
-
-Te sientas.
-
-Apareces en el mismo lugar.
-
-Pero hay otra persona sentada en la silla.
-
-Te mira.
-
-«"Llegas tarde."»
+La pantalla queda en negro.
 
 FIN.
 
-—
+9. Relacion entre las mecanicas
+    
+Las mecanicas funcionas juntas.
+Las desiciones determinan que ruta narrativa sigue, Los objetos del inventario pueden permitir o impedir determinadas acciones.
 
-5. Final secreto — "ERES REALMENTE ABURRIDO"
+Los estados permiten que el juego recuerde decisiones anteriores.
 
-Este final aparece si el jugador desarrolla un patrón específico.
-
-El jugador acepta un trabajo.
-
-Trabaja unas horas.
-
-«¿Continuar?
-
-[Renunciar]»
-
-Consigue otro.
-
-«¿Continuar?
-
-[Renunciar]»
-
-Otro.
-
-«¿Continuar?
-
-[Renunciar]»
-
-Y otro.
-
-El juego comienza a reconocer el patrón.
-
-«Has abandonado todos los trabajos que has aceptado.»
-
-«No has terminado ninguno.»
-
-«No has ahorrado suficiente dinero.»
-
-«No has aprendido ninguna habilidad.»
-
-«No has hecho absolutamente nada interesante.»
-
-Entonces aparece:
-
-«Tu alquiler está atrasado.»
-
-«Tu casero te ha echado.»
-
-«Has perdido tu casa.»
-
-«Ahora vives en la calle.»
-
-Y finalmente:
-
-«¿Valió la pena ser aburrido?»
-
-FINAL — ERES REALMENTE ABURRIDO, ¿LO SABÍAS?
-
-—
-
-Mecánica de consecuencias
-
-Una característica importante del juego es que las decisiones no siempre producen consecuencias inmediatamente.
-
-Una decisión puede modificar un estado que será utilizado posteriormente.
-
-Ejemplo:
-
-«Trabajar demasiado → baja energía.»
-
-Pero la baja energía puede provocar:
-
-«Dormirse durante un trabajo → perder dinero.»
-
-Y eso puede provocar:
-
-«No tener dinero suficiente → no pagar el alquiler.»
-
-Y finalmente:
-
-«No pagar el alquiler → perder la vivienda.»
-
-Por lo tanto:
-
-DECISIÓN → CAMBIO DE ESTADO → CONSECUENCIA → NUEVA DECISIÓN
-
-Esto permite que el jugador sienta que sus acciones tienen continuidad.
-
-—
-
-Dependencias de las decisiones
-
-Las decisiones pueden depender de diferentes elementos:
-
-Dependencia| Ejemplo
-
-Dinero| No puedes comprar comida si no tienes dinero.
-
-Energía| No puedes realizar determinadas actividades estando exhausto.
-
-Tiempo| Algunas oportunidades solo aparecen durante ciertas horas.
-
-Estado| El estrés o cansancio pueden cambiar las opciones disponibles.
-
-Trabajo| Trabajar muchas horas desbloquea nuevos eventos.
-
-Decisiones anteriores| Una elección puede modificar acontecimientos futuros
-
-Objetos| Algunos trabajos pueden entregar objetos especiales.
-
-Eventos| Ciertos acontecimientos sólo aparecen después de determinadas acciones.
-
-
-—
-
-Condición de derrota
-
-El jugador puede perder si llega a una situación irreversible.
+Finalmente, las condiciones y decisiones acumuladas determinan uno de los dos finales posibles.
 
 Por ejemplo:
 
-- No puede pagar el alquiler.
-- Pierde su vivienda.
-- Se queda sin recursos.
-- Llega a la fecha límite sin cumplir el objetivo.
+El jugador decide investigar
+        ↓
+investigo = true
+        ↓
+Encuentra una pista
+        ↓
+Obtiene la llave
+        ↓
+tieneLlave = true
+        ↓
+Puede abrir una salida
+        ↓
+Toma la decisión final
+        ↓
+Sobrevive
 
-La derrota no necesariamente tiene que ser un simple:
-
-«GAME OVER»
-
-Puede tener una pequeña escena narrativa que explique cómo terminó la vida del protagonista.
-
-—
-
-Objetivo del jugador
-
-El objetivo no es simplemente conseguir la mayor cantidad de dinero.
-
-El jugador debe decidir:
-
-«¿Qué estoy dispuesto a sacrificar para sobrevivir?»
-
-Puede ganar más dinero trabajando más horas, pero perder energía.
-
-Puede descansar, pero gana menos dinero.
-
-Puede estudiar y adquirir habilidades, pero perder tiempo de trabajo.
-
-Puede aceptar un trabajo extraño y ganar mucho dinero, pero desbloquear consecuencias inesperadas.
-
-La gracia del juego está en que no existe necesariamente una decisión perfecta.
-
-Cada decisión puede convertirse en una nueva desgracia.
-
-
+De esta manera, el juego no solamente cuenta una historia: las decisiones del jugador modifican el estado de la partida y ese estado afecta lo que puede ocurrir posteriormente.
